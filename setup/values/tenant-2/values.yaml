@@ -1,0 +1,26 @@
+global:
+  istioNamespace: tenant-2
+  multiCluster:
+    clusterName: cluster1
+  hub: docker.io/istio
+  tag: 1.23.0
+  
+pilot:
+  tag: 1.23.0
+  resources:
+    requests:
+      cpu: 500m
+      memory: 2048Mi
+  env:
+    PILOT_FILTER_GATEWAY_CLUSTER_CONFIG: "false"
+  k8s:
+    env:
+      - name: PILOT_SKIP_VALIDATE_TRUST_DOMAIN
+        value: "true"
+
+meshConfig:
+  discoverySelectors:
+    - matchLabels:
+        tenant-name: tenant-2
+
+revision: tenant-2

@@ -1,0 +1,15 @@
+apiVersion: networking.istio.io/v1beta1
+kind: Gateway
+metadata:
+  name: httpbin-gateway
+  namespace: app-ns-1
+spec:
+  selector:
+    app: gateway-tenant-1
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - "httpbin1.example.com"

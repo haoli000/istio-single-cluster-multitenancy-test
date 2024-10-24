@@ -1,0 +1,11 @@
+global:
+  istioNamespace: tenant-1
+  hub: docker.io/istio
+  tag: 1.23.0
+  proxy:
+    logLevel: debug
+
+service:
+  type: ClusterIP
+
+revision: tenant-1
